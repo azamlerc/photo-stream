@@ -56,7 +56,8 @@ app.get("/api/photos/:streamId", async (req, res) => {
         filename: o.Key.replace(Prefix, ""),
         lastModified: o.LastModified ? o.LastModified.toISOString() : null,
         size: o.Size || 0,
-      }))Z      .sort((a, b) => new Date(a.lastModified) - new Date(b.lastModified));
+      }))
+      .sort((a, b) => new Date(a.lastModified) - new Date(b.lastModified));
 
     res.json({ streamId, photos: items });
   } catch (err) {
